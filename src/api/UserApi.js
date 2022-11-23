@@ -55,9 +55,9 @@ const updateFileToSetAvatar = (file) => {
     formdata.append('file', file)
     return Api.post(`${url}/user/updatefiletosetavartar`, formdata)
 }
-const updatebackground = (backgoround) => {
+const updatebackground = (background) => {
     const body = {
-        background: backgoround
+        background: background
     }
     return Api.put(`${url}/user/setbackground`, body)
 }

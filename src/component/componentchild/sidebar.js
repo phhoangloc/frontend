@@ -23,9 +23,9 @@ const Sidebar = () => {
                     <p>DashBoard</p>
                 </div>
             </Link>
-            <Link to="/home/about">
+            <Link to="/home/todo">
                 <div className="titlePage">
-                    <p>About</p>
+                    <p>Todo</p>
                 </div>
             </Link>
         </div>

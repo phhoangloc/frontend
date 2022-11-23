@@ -17,9 +17,8 @@ const LandingPage = () => {
 
     const onKeyDownEnter = async (e) => {
         if (e.keyCode === 13) {
-            await SearchApi.postSearchByUser(e.target.value)
             window.location.href = "https://www.google.com/search?q=" + e.target.value;
-
+            await SearchApi.postSearchByUser(e.target.value)
         }
     }
 
@@ -100,7 +99,12 @@ const LandingPage = () => {
     }
 
     const iconProfile = <div className='configIcon iconProfile'>
-        <Link to='/home'><img src={usericon} /></Link>
+        <Link to='/home'>
+            <img src={
+                localStorage.avatar !== "null" && localStorage.avatar !== undefined ?
+                    `http://localhost:4000/avatar/${localStorage.avatar}` : usericon
+            } />
+        </Link>
     </div>
 
     const iconMenu =
@@ -116,7 +120,7 @@ const LandingPage = () => {
                 style={
                     backgroundPreview ?
                         { "backgroundImage": `url(${backgroundPreview})` } :
-                        (background ?
+                        (background != "null" && background != undefined ?
                             { "backgroundImage": `url(http://localhost:4000/background/${background})` } :
                             { "backgroundImage": `url(${defaultBackground})` }
                         )

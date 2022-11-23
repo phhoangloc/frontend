@@ -43,7 +43,9 @@ const Home = () => {
                     <div className='menu three'></div>
                 </div>
                 <div className='iconProfile one'><Link to="/"><img src={homeicon} /></Link></div>
-                <div className='iconProfile' onClick={onclickIconProfile}><img src={usericon} /></div>
+                <div className='iconProfile' onClick={onclickIconProfile}><img src={
+                    localStorage.avatar !== "null" && localStorage.avatar !== undefined ?
+                        `http://localhost:4000/avatar/${localStorage.avatar}` : usericon} /></div>
                 <div className='listProfile' style={listProfileBoolean ? { "height": "100px" } : null}>
                     <Link to="/home/profile"><p onClick={onClickEnterProfilePage}>My Profile</p></Link>
                     <p onClick={onClickLogOut}>Log Out</p>

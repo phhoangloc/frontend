@@ -70,7 +70,14 @@ $color5: #001c44;
         border: 1px solid white;
         margin: 0 10px;
         border-radius: 10px;
-        box-shadow: 1px 1px 2px whitesmoke;
+        box-shadow: 1px 1px 2px $color2;
+        cursor: pointer;
+    }
+
+    p:hover {
+        color: $color5;
+        background-color: $color2;
+
     }
 }
 
@@ -555,6 +562,106 @@ $color5: #001c44;
                 }
             }
         }
+    }
+}
+
+.Todo {
+    width: 90%;
+    margin: 50px auto;
+    max-width: 768px;
+    text-align: center;
+
+    h1 {
+        color: $color5;
+        text-align: center;
+        border-bottom: 2px solid $color5;
+    }
+
+    #newtodo {
+        width: 80%;
+        margin: 20px auto 0;
+        height: 30px;
+        font-size: 20px;
+        border: none;
+        padding: 5px 0;
+    }
+
+    #newtodo:focus {
+        outline: none;
+        border-bottom: 1px solid $color5;
+        color: $color5;
+    }
+
+    .todotable {
+        margin: 25px auto;
+        width: 90%;
+        border-collapse: collapse;
+        text-align: center;
+
+        tr {
+
+            th {
+                padding: 15px;
+            }
+
+            td {
+                padding: 10px;
+                color: $color4;
+                font-size: 15px;
+            }
+
+            .col1 {
+                width: 10%;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    margin: auto;
+                }
+            }
+
+            .col2 {
+                width: 50%;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    width: 50px;
+                    height: 25px;
+                    right: 0;
+                    top: 5px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    background-color: whitesmoke;
+                    transition: all 0.2s;
+                    opacity: 0.5;
+
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        margin: auto;
+                    }
+
+                    img:hover {
+                        transform: scale(1.3);
+                    }
+
+                    img:active {
+                        opacity: 1;
+                    }
+                }
+
+            }
+        }
+
+        tr:nth-child(1) {
+            border-top: 1px solid $color3;
+            border-bottom: 1px solid $color3;
+        }
+
     }
 }
 
