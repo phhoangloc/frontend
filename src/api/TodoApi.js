@@ -20,10 +20,15 @@ const updateTodoByUser = (id, todolist) => {
 const deleteTodoByUser = (id) => {
     return Api.delete(`${url}/listtodo/` + id)
 }
+
+const doneTodoByUser = (id) => {
+    return Api.put(`${url}/listtodo/done/` + id)
+}
 const TodoApi = {
     getTodoByUser,
     creatTodoByUser,
     updateTodoByUser,
-    deleteTodoByUser
+    deleteTodoByUser,
+    doneTodoByUser
 }
 export default TodoApi

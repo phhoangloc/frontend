@@ -13,14 +13,8 @@ import YesNoModal from '../modal/yesnomodal';
 import { newYNModalStyle } from '../redux/reducers/YNModalReducer';
 import Search from './search';
 import SearchApi from '../api/SearchApi';
+import storage from '../storage/Storage';
 const LandingPage = () => {
-
-    const onKeyDownEnter = async (e) => {
-        if (e.keyCode === 13) {
-            window.location.href = "https://www.google.com/search?q=" + e.target.value;
-            await SearchApi.postSearchByUser(e.target.value)
-        }
-    }
 
     const [backgroundPreview, setbackgroundPreview] = useState()
     const [background, setbackground] = useState(localStorage.background)
@@ -28,17 +22,29 @@ const LandingPage = () => {
     //get userInfor
 
     const getUserApi = async () => {
-        const result = await userApi.getUserById(localStorage.id)
-        localStorage.setItem("username", result[0].username)
-        localStorage.setItem("background", result[0].background)
-        localStorage.setItem("avatar", result[0].avatar)
-        setbackground(result[0].background)
+        const result = await userApi.getUserById()
+        if (result.msg) {
+            localStorage.clear()
+            window.location.href = "/"
+        } else {
+            localStorage.setItem("username", result[0].username)
+            localStorage.setItem("background", result[0].background)
+            localStorage.setItem("avatar", result[0].avatar)
+            setbackground(result[0].background)
+        }
     }
     //get userInfor when user is changed!
     useEffect(() => {
-        if (localStorage.id) { getUserApi() }
-    }, [localStorage.id])
+        if (localStorage.id != undefined && localStorage.id != null) { getUserApi() }
+    }, [localStorage.token])
 
+
+    const onKeyDownEnter = async (e) => {
+        if (e.keyCode === 13) {
+            window.location.href = "https://www.google.com/search?q=" + e.target.value;
+            await SearchApi.postSearchByUser(e.target.value)
+        }
+    }
 
     const [file, setFile] = useState()
 

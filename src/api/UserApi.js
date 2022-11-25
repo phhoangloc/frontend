@@ -40,8 +40,8 @@ const Resetpassword = (password, token) => {
     return Api.post(`${url}/reset?${token}`, body);
 }
 
-const getUserById = (id) => {
-    return Api.get(`${url}/user`, id)
+const getUserById = () => {
+    return Api.get(`${url}/user`)
 }
 
 const updateFile = (file) => {

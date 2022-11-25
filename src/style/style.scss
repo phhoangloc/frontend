@@ -655,11 +655,71 @@ $color5: #001c44;
                 }
 
             }
+
+            .col3 {
+                p {
+                    color: green;
+                }
+
+                .buttonDone {
+                    color: darkorange;
+                }
+            }
+
         }
 
         tr:nth-child(1) {
             border-top: 1px solid $color3;
             border-bottom: 1px solid $color3;
+        }
+
+    }
+}
+
+.calculator {
+    width: 90%;
+    margin: 50px auto;
+    max-width: 575px;
+
+    .screen {
+        width: 80%;
+
+        margin: auto;
+
+        h1 {
+            text-align: right;
+            height: 30px;
+            line-height: 30px;
+            background-color: whitesmoke;
+            padding: 5px;
+        }
+    }
+
+    .buttons {
+        width: 80%;
+        margin: 50px auto;
+
+
+        .buttonrow {
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
+
+            p {
+                width: 25%;
+                height: 50px;
+                border: 1px solid $color4;
+                text-align: center;
+                line-height: 50px;
+                margin: 1px;
+                cursor: pointer;
+            }
+
+            p:active {
+                background-color: $color5;
+                color: white;
+            }
+
         }
 
     }

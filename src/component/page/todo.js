@@ -35,12 +35,16 @@ const Todo = () => {
             setDeleteArray(deleteArray.filter(item => item != id))
     }
 
+    const onclickDone = async (id) => {
+        await TodoApi.doneTodoByUser(id)
+    }
+
     const data = todo ? todo.map((item, index) =>
         <tr key={index}>
             <td className="col1"><input type="checkbox" onChange={() => onchangeCheckbox(item.id)} /></td>
             <td className="col2">{item.TODO} <span><img src={configicon} onClick={() => onclickgetId(item.id)} /><img src={deleteicon} onClick={() => onclickdelete(item.id)} /></span></td>
-            <td className="col3">{item.done}</td>
-            <td className="col4">{item.date != "null" ? item.date : null}</td>
+            <td className="col3">{item.done == "not" ? <p onClick={() => onclickDone(item.id)}>not yet</p> : <p className="buttonDone">done</p>}</td>
+            <td className="col4">{item.date != null ? item.date.split("T")[0] : null}</td>
         </tr>
     ) : null
 

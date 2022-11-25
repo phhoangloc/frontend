@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import closeicon from '../img/Close-icon.png';
 import userApi from '../api/UserApi';
 import storage from '../storage/Storage';

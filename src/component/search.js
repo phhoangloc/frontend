@@ -2,10 +2,13 @@ import { useEffect, useState } from "react"
 import SearchApi from "../api/SearchApi"
 
 const Search = (props) => {
+
     const [searchtable, setsearchtable] = useState()
+    const [text, setText] = useState()
+
     const getSearchById = async () => {
         const result = await SearchApi.getSearchByUser()
-        setsearchtable(result)
+        result.msg ? setText(result.msg) : setsearchtable(result)
     }
     useEffect(() => {
         getSearchById()
@@ -16,7 +19,7 @@ const Search = (props) => {
             searchtable.map(
                 (item, index) =>
                     <p key={index} onClick={props.onClick}>{item.keysearch}</p>)
-            : null
+            : <p>{text}</p>
     return (
         <div className="searhresult">
             {datatable}
