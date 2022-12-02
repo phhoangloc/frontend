@@ -33,6 +33,11 @@ const Sidebar = () => {
                     <p>Canculator</p>
                 </div>
             </Link>
+            <Link to="/home/shop">
+                <div className="titlePage">
+                    <p>Shopping</p>
+                </div>
+            </Link>
         </div>
     )
 }

@@ -725,6 +725,190 @@ $color5: #001c44;
     }
 }
 
+//ShopPage
+.Shop {
+    .leftList {
+        .brand {
+            display: flex;
+
+            .brandlogo {
+                width: 30%;
+                box-sizing: border-box;
+                border: 1px solid $color5;
+                padding: 10px;
+                margin: 10px auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+
+    }
+
+    .RightContent {
+        .BrandPage {
+            .BrandInfor {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.AdminPage {
+    .AdminPageRow {
+        display: flex;
+    }
+
+    .AdminPageCol {
+        width: 100%;
+    }
+
+    .AdminPageCol:nth-child(1) {
+        width: 30%;
+        max-width: 200px;
+        text-align: center;
+        height: 100vh;
+        position: sticky;
+        background-color: whitesmoke;
+
+        .adminProfile {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            border-bottom: 5px dotted $color5;
+
+            img {
+                width: 90%;
+                border-radius: 50%;
+                border: 3px solid grey;
+                overflow: hidden;
+            }
+
+            h4 {
+                padding: 10px;
+                color: $color4;
+                margin: 5px auto;
+            }
+
+            h4:hover {
+                background-color: $color5;
+                color: white;
+                border-radius: 10px;
+
+            }
+
+            h4 {
+                color: $color4;
+            }
+        }
+
+        p {
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            width: 80%;
+            margin: 5px auto;
+        }
+
+        p:hover {
+            background-color: $color5;
+            color: white;
+            border-radius: 10px;
+        }
+    }
+
+    .AdminPageCol:nth-child(2) {}
+}
+
+.manager {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+    .newbrandbutton {
+        width: max-content;
+        padding: 5px 10px;
+        background-color: white;
+        box-shadow: 1px 1px 3px grey;
+        margin: 20px auto;
+        cursor: pointer;
+    }
+
+    .deleteAll {
+        width: 30px;
+        height: 30px;
+    }
+
+    .newbrandbutton:active {
+        transform: translate(1px, 1px);
+        box-shadow: none;
+    }
+
+    .item {
+        width: 80%;
+        height: 50px;
+        margin: 10px auto;
+        text-align: left;
+        font-weight: bold;
+        border: 1px solid grey;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        line-height: 50px;
+
+        .inputcheck {
+            margin: auto 10px;
+            width: 20px;
+        }
+
+        .inputtext {
+            margin: auto;
+            height: 20px;
+            width: 70%;
+        }
+
+        .brandname {
+            width: 70%;
+            margin: auto;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin: auto 5px;
+            cursor: pointer;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+
+        .picturebutton {
+            font-size: 12px;
+            cursor: pointer;
+            margin: auto 5px;
+            font-weight: normal;
+            transition: all 0.5s;
+            width: 30px;
+            text-align: center;
+        }
+
+        .picturebutton:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+    }
+}
+
 @media (min-width:575px) {
     .Profile {
         .cover {
@@ -752,5 +936,12 @@ $color5: #001c44;
 
         }
 
+    }
+
+    .Shop .leftList .brand {
+        .brandlogo {
+            width: 15%;
+            margin: 10px;
+        }
     }
 }

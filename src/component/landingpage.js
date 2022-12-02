@@ -13,7 +13,7 @@ import YesNoModal from '../modal/yesnomodal';
 import { newYNModalStyle } from '../redux/reducers/YNModalReducer';
 import Search from './search';
 import SearchApi from '../api/SearchApi';
-import storage from '../storage/Storage';
+
 const LandingPage = () => {
 
     const [backgroundPreview, setbackgroundPreview] = useState()
@@ -23,14 +23,14 @@ const LandingPage = () => {
 
     const getUserApi = async () => {
         const result = await userApi.getUserById()
-        if (result.msg) {
+        if (result.success = false) {
             localStorage.clear()
             window.location.href = "/"
         } else {
-            localStorage.setItem("username", result[0].username)
-            localStorage.setItem("background", result[0].background)
-            localStorage.setItem("avatar", result[0].avatar)
-            setbackground(result[0].background)
+            localStorage.setItem("username", result.data[0].username)
+            localStorage.setItem("background", result.data[0].background)
+            localStorage.setItem("avatar", result.data[0].avatar)
+            setbackground(result.data[0].background)
         }
     }
     //get userInfor when user is changed!

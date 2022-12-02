@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import closeicon from '../img/Close-icon.png';
 import userApi from '../api/UserApi';
 import { newRegisterStyle } from '../redux/reducers/RegisterBoxReducer';
@@ -8,10 +8,9 @@ import { newResendStyle } from '../redux/reducers/ResendBoxReducer';
 import { newResetStyle } from '../redux/reducers/ResetBoxReducer';
 const Register = (props) => {
 
-    var usernameInput = document.querySelector('#usernameR')
-    var emailInput = document.querySelector('#emailR')
-    var passwordInput = document.querySelector('#passwordR')
-
+    var usernameInput = useRef()
+    var emailInput = useRef()
+    var passwordInput = useRef()
     const closeModal = () => {
         store.dispatch(newStyle({ "width": "0px" }))
         store.dispatch(newRegisterStyle({ "width": "0px" }));
@@ -43,15 +42,23 @@ const Register = (props) => {
     const onclickRegister = async () => {
         const result = await userApi.Register(username, password, email)
         if (result.success === false) {
+            usernameInput.current.value = ""
+            passwordInput.current.value = ""
+            emailInput.current.value = ""
             setAlertTextUp("false!")
             setAlertTextDown(result.msg)
         } else {
             setAlertTextUp("Create User Success")
             setAlertTextDown(result)
-            usernameInput.value = ""
-            passwordInput.value = ""
-            emailInput.value = ""
-            closeModal()
+            usernameInput.current.value = ""
+            passwordInput.current.value = ""
+            emailInput.current.value = ""
+            setTimeout(
+                () => closeModal(), 2000
+            )
+            setTimeout(
+                () => window.location.href = "/", 2500
+            )
         }
     }
 
@@ -61,9 +68,9 @@ const Register = (props) => {
             <img src={closeicon} onClick={props.onclickCloseLogin} />
             <div className='box'>
                 <h1>REGISTER</h1>
-                <input id="usernameR" type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)}></input>
-                <input id="passwordR" type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}></input>
-                <input id="emailR" type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input ref={usernameInput} type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)}></input>
+                <input ref={passwordInput} type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}></input>
+                <input ref={email} type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)}></input>
                 <p className="button" onClick={onclickRegister}>Create User</p>
 
                 <p className="link" onClick={openLoginModal}>Log In</p>

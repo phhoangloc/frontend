@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useRef } from 'react';
 import closeicon from '../img/Close-icon.png';
 import userApi from '../api/UserApi';
 import storage from '../storage/Storage';
@@ -10,8 +10,8 @@ import { newResetStyle } from '../redux/reducers/ResetBoxReducer';
 
 const Login = (props) => {
 
-    var usernameInput = document.querySelector('#usernameL')
-    var passwordInput = document.querySelector('#passwordL')
+    const usernameInput = useRef()
+    const passwordInput = useRef()
 
     const closeModal = () => {
         store.dispatch(newStyle({ "width": "0px" }))
@@ -50,8 +50,8 @@ const Login = (props) => {
             storage.setToken(result.token)
             setAlertTextUp("Login Success")
             setAlertTextDown("")
-            usernameInput.value = ""
-            passwordInput.value = ""
+            usernameInput.current.value = ""
+            passwordInput.current.value = ""
             setTimeout(
                 () => closeModal(), 2000
             )
@@ -67,8 +67,8 @@ const Login = (props) => {
             <img src={closeicon} onClick={props.onclickCloseLogin} />
             <div className='box'>
                 <h1>LOGIN</h1>
-                <input id="usernameL" type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)}></input>
-                <input id="passwordL" type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}></input>
+                <input ref={usernameInput} type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)}></input>
+                <input ref={passwordInput} type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}></input>
                 <p className="button" onClick={onclickLogin}>Login</p>
 
                 <p className="link" onClick={openRegisterModal}>Create New Account</p>
