@@ -39,6 +39,10 @@ const updateBrandCover = (file) => {
     formdata.append('file', file)
     return Api.put(`${url}/myshop/uploadCover`, formdata)
 }
+const sendMail = (email, html) => {
+    const body = { email, html }
+    return Api.post(`${url}/mail`, body)
+}
 
 const AdminApi = {
     getAdminWelcome,
@@ -49,7 +53,8 @@ const AdminApi = {
     deleteBrand,
     updateBrandLogo,
     updateBrandCover,
-    getBrandbyId
+    getBrandbyId,
+    sendMail
 }
 
 export default AdminApi

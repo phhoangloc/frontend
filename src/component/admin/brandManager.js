@@ -73,7 +73,6 @@ const BrandManager = () => {
             const resultlogo = fileLogo ? await AdminApi.updateBrandLogo(fileLogo) : { data: nameLogo }
             const body = {
                 brand: brand, logo: resultlogo.data, cover: resultcover.data
-
             }
             AdminApi.updateBrand(id, body)
             setFileLogo()
