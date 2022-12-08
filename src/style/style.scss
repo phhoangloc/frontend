@@ -909,6 +909,14 @@ $color5: #001c44;
     }
 }
 
+.product {
+    .item {
+        .inputtext {
+            width: 40%;
+        }
+    }
+}
+
 @media (min-width:575px) {
     .Profile {
         .cover {

@@ -858,6 +858,10 @@ html {
   transform: scale(1.2);
 }
 
+.product .item .inputtext {
+  width: 40%;
+}
+
 @media (min-width: 575px) {
   .Profile .cover .Avatar {
     width: 100%;

@@ -54,7 +54,7 @@ const ProductManager = () => {
     return (
         <div className="manager brand">
             <h1>Product</h1>
-            <h4 className="newbrandbutton" onClick={() => onclickCreatNewProduct()}>new product</h4>
+            <h4 className="newbrandbutton" onClick={() => onclickCreatNewProduct()}>{BooleanCreate ? "cancel" : "new product"}</h4>
             {arrayId.length ? <img className="deleteAll" src={deleteicon} onClick={() => onclickDeleteManyProduct()}></img> : null}
             {BooleanCreate ?
                 <div className="item">

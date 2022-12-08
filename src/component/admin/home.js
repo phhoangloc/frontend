@@ -6,6 +6,7 @@ import usericon from '../../img/user-icon.png'
 import Mail from "./mail"
 import ProductManager from "./productManager"
 import ProductEditPage from "./productEditpage"
+import ImageManager from "./imageManager"
 const AdminHome = () => {
 
     return (
@@ -29,12 +30,16 @@ const AdminHome = () => {
                     <Link to="/admin/product">
                         <p>Product</p>
                     </Link>
+                    <Link to="/admin/image">
+                        <p>Image</p>
+                    </Link>
                     <Link to="/admin/mail">
                         <p>Mail</p>
                     </Link>
                 </div>
                 <div className="AdminPageCol">
                     <Switch>
+                        <Route path="/admin/image" exact component={ImageManager} />
                         <Route path="/admin/mail" exact component={Mail} />
                         <Route path="/admin/user" exact component={UserManager} />
                         <Route path="/admin/brand" exact component={BrandManager} />
